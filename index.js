@@ -28,13 +28,12 @@ function logStat() {
     const result = execSync(command);
     const parsed = result
       .toString()
-      .replace(/ +(?= )/g, "")
       .split("\n")
       .map(row => {
-        const [pid, mem, cpu, cmd] = row.trim().split(" ", 4);
+        const [pid, mem, cpu, ...cmd] = row.replace(/ +(?= )/g, "").trim().split(" ");
         return {
           pid,
-          cmd,
+          cmd: cmd.join(' '),
           mem: parseFloat(mem),
           cpu: parseFloat(cpu)
         };

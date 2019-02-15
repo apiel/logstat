@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js APP=logstat"
   },
   "dependencies": {
     "debug": "^4.1.1",
